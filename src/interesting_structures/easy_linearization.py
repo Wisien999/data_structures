@@ -42,6 +42,12 @@ class Linear_2D_array(Sequence):
         return x, y
     
     def get_index(self, i: int) -> tuple[int, int]:
+        if self.size == 1:
+            if i > 0:
+                raise IndexError
+            return 0, 0
+
+
         AC_areas_len = (self.size**2 - self.size) // 2
         if i >= AC_areas_len and i < AC_areas_len + self.size:
             idx = i - AC_areas_len
